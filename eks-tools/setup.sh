@@ -12,7 +12,7 @@ eksctl completion bash >> ~/.bash_completion
 . /etc/profile.d/bash_completion.sh
 . ~/.bash_completion
 
-sudo pip install --upgrade awscli && hash -r
+sudo pip3 install --upgrade awscli && hash -r
 
 sudo yum -y install jq gettext bash-completion moreutils
 
