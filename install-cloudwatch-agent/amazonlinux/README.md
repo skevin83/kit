@@ -28,7 +28,7 @@ Assign the role "AWS-SSM" to the EC2 Instance. The role contain the following po
 
 ## Step 4
 
-- Go to “C:\ProgramData\Amazon\AmazonCloudWatchAgent”. Note: C:\ProgramData is a hidden directory.
+- Go to “/opt/aws/amazon-cloudwatch-agent/etc/”.
 
 - Copy the amazon-cloudwatch-agent.json file into the above directory.
 
@@ -38,19 +38,19 @@ Assign the role "AWS-SSM" to the EC2 Instance. The role contain the following po
 
 ### Below is the AWSCLI Command to create parameter store
 ~~~
-aws ssm put-parameter --name "WindowsAgentConfig" --type "String" --value file://C:\ProgramData\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent.json --overwrite --tier Intelligent-Tiering
+aws ssm put-parameter --name "WindowsAgentConfig" --type "String" --value file:///opt/aws/amazon-cloudwatch-agent/etc/amazon-cloudwatch-agent.json --overwrite --tier Intelligent-Tiering
 ~~~
 
 ## Step 6
 
-- Start the Cloudwatch Agent by running below command inside PowerShell.
+- Start the Cloudwatch Agent by running below command inside Terminal.
 
 ~~~
-& "C:\Program Files\Amazon\AmazonCloudWatchAgent\amazon-cloudwatch-agent-ctl.ps1" -a fetch-config -m ec2 -s -c ssm:WindowsAgentConfig 
+sudo /opt/aws/amazon-cloudwatch-agent/bin/amazon-cloudwatch-agent-ctl -a fetch-config -m ec2 -s -c ssm:LinuxAgentConfig
 ~~~
 
 - Verify the SSM-Agent is running by typing the command below.
 
 ~~~
-Get-Service AmazonSSMAgent
+sudo systemctl status amazon-ssm-agent
 ~~~
