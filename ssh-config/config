@@ -1,0 +1,13 @@
+Host *
+	KeepAlive yes
+	StrictHostKeyChecking no
+	ServerAliveInterval 60
+	ServerAliveCountMax 10
+	PubkeyAcceptedKeyTypes=+ssh-dss
+
+Host github.com
+	Hostname github.com
+	User git
+	IdentityFile ~/.ssh/<your key>
+
+
