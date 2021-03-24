@@ -8,13 +8,20 @@ curl --silent --location "https://github.com/weaveworks/eksctl/releases/latest/d
 
 sudo mv -v /tmp/eksctl /usr/local/bin
 
+sudo pip3 install --upgrade awscli && hash -r
+
+sudo yum -y install jq gettext bash-completion moreutils
+
 eksctl completion bash >> ~/.bash_completion
 . /etc/profile.d/bash_completion.sh
 . ~/.bash_completion
 
-sudo pip3 install --upgrade awscli && hash -r
+kubectl completion bash >>  ~/.bash_completion
+. /etc/profile.d/bash_completion.sh
+. ~/.bash_completion
 
-sudo yum -y install jq gettext bash-completion moreutils
+echo 'export LBC_VERSION="v2.0.0"' >>  ~/.bash_profile
+.  ~/.bash_profile
 
 echo 'yq() {
   docker run --rm -i -v "${PWD}":/workdir mikefarah/yq yq "$@"
@@ -25,9 +32,6 @@ for command in kubectl jq envsubst aws
     which $command &>/dev/null && echo "$command in path" || echo "$command NOT FOUND"
   done
 
-kubectl completion bash >>  ~/.bash_completion
-. /etc/profile.d/bash_completion.sh
-. ~/.bash_completion
-
-echo 'export LBC_VERSION="v2.0.0"' >>  ~/.bash_profile
-.  ~/.bash_profile
+echo "--------------------------"
+echo "Installation has completed"
+echo "--------------------------"
