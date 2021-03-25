@@ -16,7 +16,7 @@ export EDITOR="$VISUAL"
 eval "$(starship init bash)"
 
 alias sshagent='eval `ssh-agent -s`'
-
+alias ssht="ssh -D 30000 -f -C -q -N workspace"
 alias l="ls -lah"
 alias gitfolder="cd ~/github"
 alias sshfolder="cd ~/.ssh"
