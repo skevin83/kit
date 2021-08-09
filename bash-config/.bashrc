@@ -10,8 +10,7 @@ fi
 # export SYSTEMD_PAGER=
 
 # User specific aliases and functions
-export VISUAL=nano
-export EDITOR="$VISUAL"
+export EDITOR="nano"
 
 # Add to your Bash config file
 SSHAGENT=/usr/bin/ssh-agent
