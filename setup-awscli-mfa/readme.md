@@ -2,7 +2,7 @@
 Copy the mfa.sh file into your ~/.aws folder
 Make sure you make the file executable by typing the following command `chmod 777 mfa.sh` 
 
-## Steo 2
+## Step 2
 Inside your .bashrc or .zshrc insert below line
 ```
 alias mfa=~/.aws/mfa.sh
