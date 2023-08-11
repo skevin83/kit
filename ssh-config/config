@@ -1,8 +1,9 @@
 Host *
 	KeepAlive yes
 	StrictHostKeyChecking no
-	ServerAliveInterval 60
-	ServerAliveCountMax 10
+	UserKnownHostsFile=/dev/null
+	ServerAliveInterval 30
+	ServerAliveCountMax 100
 	PubkeyAcceptedKeyTypes=+ssh-dss
 
 Host github.com
